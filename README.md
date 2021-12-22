@@ -1,7 +1,9 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-# Auto Daily Check-in for Genshin Impact
+# GADC 가득
 <img src="/Documents/GADC.png?raw=true" width = "300px" height = "300px" align = "right">
+
+> Auto Daily Check-in for Genshin Impact
 
 Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free from it!\
 원신 일일 출첵 매일 까먹으셔서 당황하셨어요? 저도 많이 당황했습니다~ ^^ 자동 출첵 한번 잡숴보세요 ;)
@@ -10,8 +12,9 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 
 ## ❔ How to use
 ### 1. Install Java
-You just need JRE(or JDK). It's the same method as installing Java for Minecraft(Java Edition)!\
-If it's already installed, you don't have to re-install it.\
+You just need JRE(or JDK). It's the same method as installing Java for Minecraft(Java Edition)!
+If it's already installed, you don't have to re-install it.
+
 JRE나 JDK만 있으시면 됩니다. 마인크래프트 자바에디션 깔 때 자바 까는 것과 똑같이 깔아주시면 됩니다!\
 이미 깔려있으면 다시 깔으실 필요 없어요
 
