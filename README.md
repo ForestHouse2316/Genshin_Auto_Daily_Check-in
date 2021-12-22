@@ -98,7 +98,6 @@ If you use this program and connect to HoYoLAB (or other sites managed by MiHoYo
 - Java 17
 - Selenium 4.1.1 (Java / Python)
 - Guava 31.0.1
-- Launch4j 3.14
 - Logo image resources(Primogem, Pot) are provided by MiHoYo on the premise of using them for non-commercial purposes. MiHoYo All Rights Reserved.
 
 ## About Contribution
@@ -108,3 +107,4 @@ Let's develop this together~\
 같이 개발합시다 ㅎㅎ..\
 \
 *p.s. I cannot do C++.. If you can do C++, how abt joining this project?*
+
