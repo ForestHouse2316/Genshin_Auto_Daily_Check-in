@@ -42,7 +42,7 @@ public class GADC {
                 suspendGADC();
             }
         } catch (Exception e) {
-            SaveDataManager.writeStackLog(e.getStackTrace());
+            SaveDataManager.writeStackLog(e);
             suspendGADC();
         }
     }
@@ -56,7 +56,7 @@ public class GADC {
             try {
                 SaveDataManager.createDataFile();
             } catch (IOException e) {
-                SaveDataManager.writeStackLog(e.getStackTrace());
+                SaveDataManager.writeStackLog(e);
                 System.err.println("Cannot create data file");
                 suspendGADC();
             }
@@ -140,15 +140,16 @@ public class GADC {
         } else {
             try {
                 driver = new ChromeDriver(options);  // If the driver version does not match with the Chrome version, cause an exception
+                return;
             } catch (Exception e){  // Caused by a driver version mismatch
                 System.out.println("Driver does not compatible to your chrome version.");
                 if (!file.delete()) {
                     System.err.println("The driver file has not been deleted completely. It can cause other errors.");
                 }
                 downloadDriverWithRetry();
-                driver = new ChromeDriver(options);  // If this cause an Exception, it may due to OS (such as permission problem, protection...)
             }
         }
+        driver = new ChromeDriver(options);  // If this cause an Exception, it may due to OS (such as permission problem, protection...)
     }
 
     /**
@@ -156,9 +157,9 @@ public class GADC {
      * @throws DriverInitFailedError Throws when there is no Chrome
      */
     private void downloadDriverWithRetry() throws DriverInitFailedError {
-        if (downloadDriver()) {
+        if (!downloadDriver()) {
             System.err.println("Failed to download driver. Trying again. . .");
-            if (downloadDriver()) {
+            if (!downloadDriver()) {
                 throw new DriverInitFailedError("Cannot download driver");
             }
         }
@@ -203,11 +204,11 @@ public class GADC {
             System.out.println("Latest driver version : " + latestDriverVersion);
             InputStream download = new URL("https://chromedriver.storage.googleapis.com/" + latestDriverVersion + "/chromedriver_win32.zip").openStream();
             Zip.unzip(download, new File("./"));
+            return true;
         } catch (IOException e) {
             System.err.println("Failed to download and unzip chromedriver");
             return false;
         }
-        return true;
     }
 
     /**
@@ -331,8 +332,11 @@ class SaveDataManager {
             Files.write(DATA_PATH, DAY_INFO.getBytes());
         } catch (IOException ignored) {}
     }
-    public static void writeStackLog(StackTraceElement[] stacks) {
+    public static void writeStackLog(Exception e) {
+        String msg = e.getMessage();
+        StackTraceElement[] stacks = e.getStackTrace();
         StringBuilder logBuilder = new StringBuilder();
+        logBuilder.append(msg).append("\n");
         for (StackTraceElement s : stacks) {
             logBuilder.append(s).append("\n");
         }
