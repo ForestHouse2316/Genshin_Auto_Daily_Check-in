@@ -1,0 +1,1 @@
+result = msgbox("어라.. 오늘의 자동 출첵을 실패했어요.."+vbCrLf+"죄송함다 ㅠ_ㅠ"+vbCrLf+"지금은 수동으로 출첵 해주시고 이 오류가 계속되면 깃허브에 Issue 를 남겨주세요!", vbOkOnly,"Genshin Auto Check-in")
