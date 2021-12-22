@@ -39,38 +39,6 @@ That's all!\
 
 -----
 
-## 📜 Update logs
-*Only shows last five versions and planned versions' road map*
-
-### Java Version
-
-#### 1.0.1 🛠️
-> [Bug Fix] - Known bugs from 1.0.0 will be fixed
-
-#### 1.0.0
-The initial version of GADC!
-
------
-
-### Python Version
-
-#### 1.0.0 🛠️
-> Will be updated soon!
-
-## 🔌 Dependencies / Open-Source Libs / License
-- Java 17
-- Selenium 4.1.1 (Java / Python)
-- Guava 31.0.1
-- Logo image resources(Primogem, Pot) are provided by MiHoYo on the premise of using them for non-commercial purposes. MiHoYo All Rights Reserved.
-
-## About Contribution
-Anyone can contribute and open PR :)\
-Let's develop this together~\
-누구든 contribute 하고 PR을 열 수 있어요 :)\
-같이 개발합시다 ㅎㅎ..\
-\
-*p.s. I cannot do C++.. If you can do C++, how abt joining this project?*
-
 ## Terms&Policy
 
 ### The range of collecting information
@@ -90,7 +58,9 @@ All other tasks work in the GADC folder.
 - GADC은 알맞은 크롬 드라이버를 다운받고자 레지스트리로부터 사용자의 크롬 버전을 얻어냅니다.
 이것을 제외하고, GADC은 사용자의 저장소나 OS에 접근하지 않습니다.
 다른 모든 작업들은 GADC 폴더 안에서 이루어집니다.
-> Accessing registry path is : HKEY_CURRENT_USER\Software\Google\Chrome\BLBeacon\version
+```
+Accessing registry path is : HKEY_CURRENT_USER\Software\Google\Chrome\BLBeacon\version
+```
 
 ### Internet Access
 - GADC only uses the internet when GADC needs to download(or update) chrome driver. There is no internet connection except that.
@@ -101,3 +71,40 @@ All other tasks work in the GADC folder.
 If you use this program and connect to HoYoLAB (or other sites managed by MiHoYo), that means you are agreeing to the sites' terms&policy.
 - GADC은 호요랩과 미호요와 아무런 관계가 없습니다.\
 만약 이 프로그램을 이용하여 호요랩이나 미호요에 의해 관리되는 다른 사이트에 접속할 경우, 이것은 당신이 해당 사이트의 정책에 동의한다는 것을 의미합니다.
+
+
+
+-----
+
+## 📜 Update History
+
+> Version with 🛠️  mark means it's under developing
+
+### Java Version
+
+|Java|Details|
+|:---:|:------------|
+|1.0.0|Initial version of GADC|
+|*1.0.1*🛠️|[BugFix]|
+
+### Python Version
+
+|Python|Details|
+|:---:|:------------|
+|*1.0.0*🛠️|Initial version of GADC|
+
+
+## 🔌 Dependencies / Open-Source Libs / License
+- Java 17
+- Selenium 4.1.1 (Java / Python)
+- Guava 31.0.1
+- Logo image resources(Primogem, Pot) are provided by MiHoYo on the premise of using them for non-commercial purposes. MiHoYo All Rights Reserved.
+
+## About Contribution
+Anyone can contribute and open PR :)\
+Let's develop this together~\
+누구든 contribute 하고 PR을 열 수 있어요 :)\
+같이 개발합시다 ㅎㅎ..\
+\
+*p.s. I cannot do C++.. If you can do C++, how abt joining this project?*
+
