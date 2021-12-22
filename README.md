@@ -87,6 +87,12 @@ If you use this program and connect to HoYoLAB (or other sites managed by MiHoYo
 - GADC은 호요랩과 미호요와 아무런 관계가 없습니다.\
 만약 이 프로그램을 이용하여 호요랩이나 미호요에 의해 관리되는 다른 사이트에 접속할 경우, 이것은 당신이 해당 사이트의 정책에 동의한다는 것을 의미합니다.
 
+### About MiHoYo's ban request
+- If MiHoYo(or who delegated authority from MiHoYo) request to stop the distribution of the GADC, we will follow their request
+because MiHoYo has whole permission that interprets this.
+- MiHoYo가 이 프로그램의 해석에 대한 모든 권한을 가지고 있기 때문에,
+만약 MiHoYo(또는 당사로부터 권한을 위임받은 자)가 GADC의 배포를 중단할 것을 요청한다면 우리는 해당 요청에 따를 것입니다.
+
 -----
 
 ## 📜 Update History
