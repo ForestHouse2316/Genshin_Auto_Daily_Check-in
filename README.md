@@ -66,13 +66,21 @@ Accessing registry path is : HKEY_CURRENT_USER\Software\Google\Chrome\BLBeacon\v
 - GADC only uses the internet when GADC needs to download(or update) chrome driver. There is no internet connection except that.
 - GADC은 크롬 드라이버를 다운로드 하거나 업데이트 할 때에만 인터넷을 사용합니다. 이외의 인터넷 연결은 전혀 없습니다.
 
+### Responsibility
+- Developers are responsible for their code writing, but not responsible for other issues.\
+This means that developers will try to serve high-quality code to users, but if there are problems such as missing check-in, developers do not have any responsibility for that.\
+Especially, as written above, when critical problems cause by non-official GADC distribution, it is totally the user's fault.\
+Make sure that the GADC is not a perfect program. We'll try to make it better, but it doesn't mean there are no bugs or problems.
+- 개발자들은 코드 작성에 있어 책임을 지지만, 다른 문제들에 있어서는 책임을 지지 않습니다.\
+이것은 개발자들이 고품질의 코드를 사용자에게 제공하려 노력할 것이지만 만약 출석체크 누락 등의 문제가 생긴다면 개발자들은 이에 대해 어떠한 책임도 지지 않는다는 것을 의미합니다.\
+특히 상기하였듯, GADC의 비공식 배포버전을 사용하여 중대한 문제들이 발생할 때 그것은 전적으로 사용자의 실책입니다.\
+GADC이 완벽한 프로그램이 아니라는 것을 기억해주세요. 개발진은 GADC을 더 좋게 개선하려 노력할 것이지만, 이것이 아무런 버그나 문제가 없다는 것을 의미하지는 않습니다.
+
 ### About HoYoLAB
 - GADC does not have any relations with HoYoLAB and MiHoYo.\
 If you use this program and connect to HoYoLAB (or other sites managed by MiHoYo), that means you are agreeing to the sites' terms&policy.
 - GADC은 호요랩과 미호요와 아무런 관계가 없습니다.\
 만약 이 프로그램을 이용하여 호요랩이나 미호요에 의해 관리되는 다른 사이트에 접속할 경우, 이것은 당신이 해당 사이트의 정책에 동의한다는 것을 의미합니다.
-
-
 
 -----
 
