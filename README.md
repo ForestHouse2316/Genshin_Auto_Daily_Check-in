@@ -41,7 +41,12 @@ That's all!\
 
 ## Terms&Policy
 
-### The range of collecting information
+### The range of GADC
+- This Terms&Policy is only applied to GADC and GADC's resources except 3rd-party library, Chrome, and Sites that GADC connet to.
+Please follow each Terms&Policy when you use those services.
+- 이 약관 및 정책은 오직 GADC과 GADC의 리소스에만 적용됩니다. 서드파티 라이브러리, 크롬, GADC이 접속하는 사이트 등은 제외하며 이용 시 각각의 이용약관을 준수해주시기 바랍니다.
+
+### Collecting information
 - GADC does not collect or use any kind of user data.
 If GADC collect your data or behave suspiciously, immediately check that the GADC you're using is downloaded in official GitHub repository.
 GitHub is the only site that distributes GADC.\
