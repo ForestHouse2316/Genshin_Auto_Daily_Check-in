@@ -118,6 +118,7 @@ public class GADC {
         } catch (NoSuchElementException e) {
             System.out.println("Today's check is already done.");
         }
+        driver.close();
         return true;
     }
 
