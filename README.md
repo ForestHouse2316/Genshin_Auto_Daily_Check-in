@@ -76,23 +76,23 @@ If you use this program and connect to HoYoLAB (or other sites managed by MiHoYo
 
 -----
 
-## 📜 Update logs
-*Only shows last five versions and planned versions' road map*
+## 📜 Update History
+
+> Version with 🛠️  mark means it's under developing
 
 ### Java Version
 
-#### 1.0.1 🛠️
-> [Bug Fix] - Known bugs from 1.0.0 will be fixed
-
-#### 1.0.0
-The initial version of GADC!
-
------
+|Java|Details|
+|:---:|:------------|
+|1.0.0|Initial version of GADC|
+|*1.0.1*🛠️|[BugFix]|
 
 ### Python Version
 
-#### 1.0.0 🛠️
-> Will be updated soon!
+|Python|Details|
+|:---:|:------------|
+|*1.0.0*🛠️|Initial version of GADC|
+
 
 ## 🔌 Dependencies / Open-Source Libs / License
 - Java 17
