@@ -1,9 +1,8 @@
 import exception.DriverInitFailedError;
-import jdk.jfr.StackTrace;
+import exception.GADCException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.io.Zip;
@@ -19,8 +18,6 @@ import java.nio.file.Paths;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-
-import exception.GADCException;
 
 /**
  * Genshin Auto Daily Check-in
@@ -100,19 +97,20 @@ public class GADC {
         driver.get("https://webstatic-sea.mihoyo.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481&mhy_auth_required=true");
         driver.findElement(new By.ByXPath("/html/body/div[1]/div[1]/div/div/div/div[2]/div[1]/img")).click();
         try {
-            WebElement closeButton = driver.findElement(new By.ByXPath("/html/body/div[4]/div/div/div/img[2]"));  // Log in popup's close button
+            driver.findElement(new By.ByXPath("/html/body/div[4]/div/div/div/img[2]"));  // Log in popup's close button
             MsgBoxManager.showLoginNotice();
             while (true) {
                 try {
-                    closeButton = driver.findElement(new By.ByXPath("/html/body/div[4]/div/div/div/img[2]"));  // Wait until login window close
+                    driver.findElement(new By.ByXPath("/html/body/div[4]/div/div/div/img[2]"));  // Wait until login window close
                 } catch (NoSuchElementException e) {
+                    try {
+                        Thread.sleep(3000);  // Wait for three seconds to give the term that site change its HTML
+                    } catch (InterruptedException ignored) {}
                     break;
                 }
                 try {
                     Thread.sleep(100);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                } catch (InterruptedException ignored) {}
             }
         } catch (NoSuchElementException e) {  // If already logged in
             System.out.println("Already logged in");
@@ -258,7 +256,7 @@ public class GADC {
      */
     public static void suspendGADC() {
         try {
-            Runtime.getRuntime().exec("start \"" + SaveDataManager.AbsPath + "gc.bat" + "\"");
+            Runtime.getRuntime().exec("start \"" + SaveDataManager.AbsPath + "scripts\\gc.bat" + "\"");
         } catch (IOException e) {
             System.err.println("Failed to kill chromedriver. Please kill process manually");
         }
@@ -273,14 +271,14 @@ public class GADC {
 class MsgBoxManager {
     public static void showLoginNotice() {
         try {
-            Runtime.getRuntime().exec("wscript \"" + SaveDataManager.AbsPath + "LoginNotice.vbs" + "\"");
+            Runtime.getRuntime().exec("wscript \"" + SaveDataManager.AbsPath + "scripts\\LoginNotice.vbs" + "\"");
         } catch (IOException ignored) {}
         System.out.println("VBS : login notice");
     }
 
     public static void showWelcome() {
         try {
-            Runtime.getRuntime().exec("wscript \"" + SaveDataManager.AbsPath + "welcome.vbs" + "\"");
+            Runtime.getRuntime().exec("wscript \"" + SaveDataManager.AbsPath + "scripts\\welcome.vbs" + "\"");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -288,9 +286,8 @@ class MsgBoxManager {
     }
 
     public static void showFailed() {
-        String path = new File("failed.vbs" ).getAbsolutePath();
         try {
-            Runtime.getRuntime().exec("wscript \"" + SaveDataManager.AbsPath + "failed.vbs" + "\"");  // Show GADC failed to do check-in automatically...
+            Runtime.getRuntime().exec("wscript \"" + SaveDataManager.AbsPath + "scripts\\failed.vbs" + "\"");  // Show GADC failed to do check-in automatically...
         } catch (IOException ignored) {}
         System.out.println("VBS : failed");
     }
@@ -303,14 +300,14 @@ class SaveDataManager {
     public static final String DAY_INFO;
     public static final String TIME_INFO;
     public static final String CURRENT_HOUR;
-    public static final String AbsPath = new File("welcome.vbs").getAbsolutePath().replace("welcome.vbs", "");  // C:\~path~\
-    private static final Path DATA_PATH = Paths.get(AbsPath + "data.txt");
+    public static final String AbsPath = new File("scripts\\welcome.vbs").getAbsolutePath().replace("scripts\\welcome.vbs", "");  // C:\~path~\
+    private static final Path DATA_PATH = Paths.get(AbsPath + "\\scripts\\data.txt");
 
     static {
         String[] date = new Date().toString().split(" ");
         TIME_INFO = date[3].replace(":", "_");
         CURRENT_HOUR = TIME_INFO.split("_")[0];
-        DAY_INFO = Integer.parseInt(CURRENT_HOUR) >= 1 ? date[2] : String.valueOf((Integer.parseInt(date[2]) - 1));
+        DAY_INFO = Integer.parseInt(CURRENT_HOUR) >= 1 ? date[2] : String.valueOf((Integer.parseInt(date[2]) - 1));  // HoYoLAB server is initialized at 1 a.m.
     }
 
     public static void createDataFile() throws IOException{
@@ -326,7 +323,7 @@ class SaveDataManager {
     }
     public static void writeDate() {
         try {
-            new File("data.txt").delete();
+            new File(DATA_PATH.toString()).delete();
         } catch (Exception ignored) {}
         try {
             Files.write(DATA_PATH, DAY_INFO.getBytes());
@@ -342,7 +339,7 @@ class SaveDataManager {
         }
         byte[] bytes = logBuilder.toString().getBytes();
         try {
-            Files.write(Paths.get(AbsPath + TIME_INFO + "crash.log"), bytes);
+            Files.write(Paths.get(AbsPath + TIME_INFO + "_crash.log"), bytes);
         } catch (IOException ignored) {}
     }
 }
