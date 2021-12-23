@@ -87,8 +87,9 @@ If you use this program and connect to HoYoLAB (or other sites managed by MiHoYo
 |1.0.0|Initial version of GADC|
 |1.0.1|Add additional vbs messages|
 ||[Fix bugs] initial auto check-in, Clean up duplicated files in jar|
-||[Change] Edit some sentences of vbs messages|
+||[Change] Edit some sentences of vbs messages, Refactor codes|
 |*1.1.0*🛠️|Supports auto update through GitHub release|
+||[Fix bugs] Unknown bugs randomly caused at initial startup|
 
 ### Python Version
 
