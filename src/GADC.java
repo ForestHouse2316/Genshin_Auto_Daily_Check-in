@@ -29,7 +29,7 @@ public class GADC {
 
     private WebDriver driver;
     private final ChromeOptions options;
-    public static final String DRIVER_PATH_STR = "scripts\\chromedriver.exe";
+    public static final String DRIVER_PATH = "scripts\\chromedriver.exe";
     public static final String CHECK_IN_SITE = "https://webstatic-sea.mihoyo.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481&mhy_auth_required=true";
 
     public static void main(String[] args){
@@ -80,7 +80,7 @@ public class GADC {
         } catch (DriverInitFailedError | IOException e) {
             System.err.println("Failed to compose debug mode. Chrome will work in automation mode and will not save any data");
         }
-        System.setProperty("webdriver.chrome.driver", DRIVER_PATH_STR);
+        System.setProperty("webdriver.chrome.driver", DRIVER_PATH);
         try {
             attachDriver();
         } catch (GADCException | IOException e) {
@@ -133,7 +133,7 @@ public class GADC {
      * Also check chromedriver.exe and take a task when the driver version is old or there is no driver.
      */
     private void attachDriver() throws GADCException, IOException {
-        File file = new File("./" + DRIVER_PATH_STR);
+        File file = new File("./" + DRIVER_PATH);
         if (!file.exists()){  // If there is no driver
             System.out.println("Driver does not exist.");
             downloadDriverWithRetry();
@@ -219,7 +219,8 @@ public class GADC {
      */
     private void configChromeVirtualEnv() throws DriverInitFailedError, IOException{
         final String BATCH_PATH = SaveDataManager.AbsPath+"scripts\\VirtualEnv.bat";
-        File folder = new File(SaveDataManager.AbsPath+"VirtualEnv");
+        final String ENV_PATH = SaveDataManager.AbsPath+"VirtualEnv";
+        File folder = new File(ENV_PATH);
         if (!folder.exists()) {
             if (!folder.mkdir()) {
                 throw new IOException("Cannot make a new directory at " + SaveDataManager.AbsPath);
@@ -239,7 +240,7 @@ public class GADC {
             throw new IOException("Failed to create VirtualEnv.bat");
         }
         String cmd = "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" " +
-                "--remote-debugging-port=9222 --user-data-dir=" + "\"" + BATCH_PATH + "\"";  // Location of ChromeVirtualEnv
+                "--remote-debugging-port=9222 --user-data-dir=" + "\"" + ENV_PATH + "\"";  // Location of ChromeVirtualEnv
         byte[] bytes = cmd.getBytes();
         try {
             Files.write(batPath, bytes);  // Create customized batch executor
