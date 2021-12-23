@@ -15,10 +15,12 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 ## ❔ How to use
 ### 1. Install Java
 You just need JRE(or JDK). It's the same method as installing Java for Minecraft(Java Edition)!
-If it's already installed, you don't have to re-install it.
+If it's already installed, you don't have to re-install it.\
+__JRE/JDK 1.8 or higher version needed__
 
 JRE나 JDK만 있으시면 됩니다. 마인크래프트 자바에디션 깔 때 자바 까는 것과 똑같이 깔아주시면 됩니다!\
-이미 깔려있으면 다시 깔으실 필요 없어요
+이미 깔려있으면 다시 깔으실 필요 없어요\
+__JRE/JDK 1.8 또는 그 이상의 버전이 필요합니다.__
 
 ### 2. Register into starting program
 Download the file, and register it into starting program. Then it'll automatically do check-in once every day ^^
