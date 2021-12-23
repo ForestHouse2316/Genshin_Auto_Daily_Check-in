@@ -9,6 +9,7 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 원신 일일 출첵 매일 까먹으셔서 당황하셨어요? 저도 많이 당황했습니다 ^^\
 자동 출첵 한번 잡숴보세요 ;)
 
+최신버전 다운로드 버튼 -> [DOWNLOAD](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases/tag/GADC-1.0.1)
 -----
 
 ## ❔ How to use
@@ -68,7 +69,7 @@ Accessing registry path is : HKEY_CURRENT_USER\Software\Google\Chrome\BLBeacon\v
 ```
 
 ### Internet Access
-- GADC only uses the internet when GADC needs to download(or update) chrome driver. There is no internet connection except that.
+- GADC only uses the internet when GADC needs to download(or update) chrome driver or latest version of GADC. There is no internet connection except that.
 - GADC은 크롬 드라이버를 다운로드 하거나 업데이트 할 때에만 인터넷을 사용합니다. 이외의 인터넷 연결은 전혀 없습니다.
 
 ### Responsibility
@@ -104,7 +105,12 @@ because MiHoYo has whole permission that interprets this.
 |Java|Details|
 |:---:|:------------|
 |1.0.0|Initial version of GADC|
-|*1.0.1*🛠️|[BugFix]|
+|1.0.1|Add additional vbs messages|
+||[Fix bugs] initial auto check-in, Clean up duplicated files in jar|
+||[Change] Edit some sentences of vbs messages, Refactor codes|
+|*1.1.0*🛠️|Supports auto update through GitHub release|
+||[Fix bugs] Unknown bugs randomly caused at initial startup|
+
 
 ### Python Version
 
