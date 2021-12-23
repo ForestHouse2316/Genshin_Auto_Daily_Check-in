@@ -28,7 +28,6 @@ public class GADC {
     private WebDriver driver;
     private final ChromeOptions options;
     public static final String DRIVER_PATH = "scripts\\chromedriver.exe";
-    public static final String CHECK_IN_SITE = "https://webstatic-sea.mihoyo.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481&mhy_auth_required=true";
 
     public static void main(String[] args){
         try {
@@ -93,7 +92,7 @@ public class GADC {
      * @author ForestHouse2316
      */
     public boolean checkIn() {
-        driver.get(CHECK_IN_SITE);
+        driver.get("https://webstatic-sea.mihoyo.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481&mhy_auth_required=true");
         driver.findElement(new By.ByXPath("/html/body/div[1]/div[1]/div/div/div/div[2]/div[1]/img")).click();
         try {
             driver.findElement(new By.ByXPath("/html/body/div[4]/div/div/div/img[2]"));  // Log in popup's close button
