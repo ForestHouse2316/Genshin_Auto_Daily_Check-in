@@ -22,20 +22,25 @@ JRE나 JDK만 있으시면 됩니다. 마인크래프트 자바에디션 깔 때
 이미 깔려있으면 다시 깔으실 필요 없어요\
 __JRE/JDK 1.8 또는 그 이상의 버전이 필요합니다.__
 
-### 2. Register into starting program
-Download the file, and register it into starting program. Then it'll automatically do check-in once every day ^^
+### 2. Register into starting program (Optional)
+Download the file, and register it into starting program. Then it'll automatically do check-in once every day ^^\
+If it's hard to register GADC into startup program, it's okay not to do that. Just execute GADC everyday.\
+We'll prepare that function ASAP.
 > Notice : The Chrome remoted by GADC will be executed in independent environment.\
-> You should log in again when the program notifies that to you.
 
-파일을 다운받고, 시작프로그램에 등록만 하면 알아서~ 매일 한 번, 컴퓨터를 킬 때마다 자동으로 출첵을 해준답니다 ^^
+파일을 다운받고, 시작프로그램에 등록만 하면 알아서~ 매일 한 번, 컴퓨터를 킬 때마다 자동으로 출첵을 해준답니다 ^^\
+만약 jre를 시작프로그램으로 등록하는 과정이 어렵다면, 하지 않으셔도 괜찮습니다. 매일 한 번 실행시켜 주시면 됩니다.\
+최대한 빠른 시일 내로 해당 기능을 준비하도록 하겠습니다.
 > 공지 : GADC에 의해 제어되는 크롬은 여러분이 쓰시는 크롬과 다른, 독립된 환경에서 실행됩니다.\
-> 프로그램이 로그인을 요청할 때 다시 로그인을 해주셔야 합니다.
 
-### Chrome Auto-login
-This program supports only Chrome browser(not Chromium!) and you need to set HoYoLAB auto-login in Chrome\
+### Do your login just "ONCE"
+This program supports only Chrome browser(not Chromium!) and you need to login to HoYoLAB in Chrome
 because this progrma __does not__ save your HoYoLAB ID/PW.\
+HoYoLAB site basically support 'remember me' function. So, you don't have to do extra settings.\
+But, if auto-login goes disabled, then you need to login again.
 이 프로그램은 크롬 브라우저만 지원하며 크로미움은 지원하지 않아요 :(\
-그리고 호요랩의 아이디나 비번을 저장하지 않기 때문에 크롬 브라우저에서 호요랩 자동 로그인을 설정하셔야 합니다.
+호요랩이 기본적으로 로그인 유지 기능을 지원하므로 추가적인 설정을 하실 필요는 없습니다.\
+단, 비밀번호 변경 등 자동 로그인 상태가 풀리는 경우에는 다시 로그인을 해야할 수 있습니다.
 
 That's all!\
 설정은 이게 끝이에요!
@@ -114,6 +119,7 @@ because MiHoYo has whole permission that interprets this.
 |1.0.1|Add additional vbs messages|
 ||[Fix bugs] initial auto check-in, Clean up duplicated files in jar|
 ||[Change] Edit some sentences of vbs messages, Refactor codes|
+|*1.0.2*🛠️|TBA|
 |*1.1.0*🛠️|Supports auto update through GitHub release|
 ||[Fix bugs] Unknown bugs randomly caused at initial startup|
 
