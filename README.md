@@ -156,7 +156,7 @@ because MiHoYo has whole permission that interprets this.
 |1.0.1|Add additional vbs messages|
 ||[Fix bugs] initial auto check-in, Clean up duplicated files in jar|
 ||[Change] Edit some sentences of vbs messages, Refactor codes|
-|*1.0.2*🛠️|[Fix bugs] Bug that GC process does not work normally after check-in|
+|*1.0.2-beta*|[Fix bugs] Bug that GC process does not work normally after check-in|
 |*1.0.3*🛠️|Add auto starting function|
 |*1.1.0*🛠️|Supports auto update through GitHub release|
 ||[Fix bugs] Unknown bugs randomly caused at initial startup|
