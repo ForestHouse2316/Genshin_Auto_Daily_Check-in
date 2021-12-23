@@ -15,9 +15,9 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 
 ## ❔ How to use
 
-### Download it
+### 0. Download it
 Download latest version of GADC. It's in a zip file. (EN - English Version)\
-The file you need to execute is "GADC.jar"
+The file you need to execute is "GADC.jar"\
 최신 버전의 GADC을 다운받아주세요. 압축 파일로 되어 있습니다. (KR - 한국어 버전)\
 여러분이 실행해야할 파일은 "GADC.jar" 입니다.
 
