@@ -56,7 +56,7 @@ That's all!\
 설정은 이게 끝이에요!
 
 
-## ❔ How it works, and what is that files
+## ❔ How it works, and what are that files
 - This program use Chrome's debug mode. It can make indepndent Chrome environment and GADC connect to HoYoLAB using that.
 So GADC cannot access anything in your "REAL" Chrome(a.k.a. your main Chrome). Of course, also does not access to debug Chrome's data.
 GADC.jar is the main file of GADC. It controls all process and flows when you execute GADC. VBScripts just show you message boxes.
