@@ -1,0 +1,1 @@
+result = msgbox("You are logged out from HoYoLAB"+vbCrLf+"(Normal if it's the first time to use GADC)"+vbCrLf+"GADC will automatically continue after 3second when you finish your login"+vbCrLf+vbCrLf+"Notice : If you close the login popup before you log in, an error will be caused", vbOkOnly,"Genshin Auto Check-in")

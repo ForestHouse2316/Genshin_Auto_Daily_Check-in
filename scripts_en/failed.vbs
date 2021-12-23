@@ -1,0 +1,1 @@
+result = msgbox("Sorry but GADC failed to login..."+vbCrLf+"Execute GADC again. If this error happen again, please do check-in manually."+vbCrLf+"If the error persists, please leave an Issue and the crash log in GitHub", vbOkOnly,"Genshin Auto Check-in")

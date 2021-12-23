@@ -1,0 +1,1 @@
+result = msgbox("현재 로그인이 풀려있어요."+vbCrLf+"(처음인 경우엔 정상이에요)"+vbCrLf+"로그인 하시면 3초 뒤 자동으로 진행됩니다."+vbCrLf+vbCrLf+"주의 : 로그인 안 하고 로그인 창을 닫으면 에러가 나요 :'(", vbOkOnly,"Genshin Auto Check-in")
