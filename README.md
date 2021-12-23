@@ -44,6 +44,10 @@ That's all!\
 
 ## Terms&Policy
 
+### About source code disclosure
+- All resources of GADC are following open-source policy. You can check all codes of GADC in [scripts](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/tree/main/scripts_en) and [src](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/tree/main/src).
+- GADC의 모든 리소스는 오픈소스 정책을 따릅니다. [스크립트 폴더](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/tree/main/scripts)와 [소스코드 폴더](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/tree/main/src)에서 GADC의 모든 코드들을 확인하실 수 있습니다.
+
 ### The range of GADC
 - This Terms&Policy is only applied to GADC and GADC's resources except 3rd-party library, Chrome, and Sites that GADC connet to.
 Please follow each Terms&Policy when you use those services.
