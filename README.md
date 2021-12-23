@@ -9,6 +9,7 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 원신 일일 출첵 매일 까먹으셔서 당황하셨어요? 저도 많이 당황했습니다 ^^\
 자동 출첵 한번 잡숴보세요 ;)
 
+최신버전 다운로드 버튼 -> [DOWNLOAD]()
 -----
 
 ## ❔ How to use
