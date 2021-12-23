@@ -34,24 +34,37 @@ __JRE/JDK 1.8 또는 그 이상의 버전이 필요합니다.__
 Download the file, and register it into starting program. Then it'll automatically do check-in once every day ^^\
 If it's hard to register GADC into startup program, it's okay not to do that. Just execute GADC everyday.\
 We'll prepare that function ASAP.
-> Notice : The Chrome remoted by GADC will be executed in independent environment.\
+> Notice : The Chrome remoted by GADC will be executed in independent environment.
 
 파일을 다운받고, 시작프로그램에 등록만 하면 알아서~ 매일 한 번, 컴퓨터를 킬 때마다 자동으로 출첵을 해준답니다 ^^\
 만약 jre를 시작프로그램으로 등록하는 과정이 어렵다면, 하지 않으셔도 괜찮습니다. 매일 한 번 실행시켜 주시면 됩니다.\
 최대한 빠른 시일 내로 해당 기능을 준비하도록 하겠습니다.
-> 공지 : GADC에 의해 제어되는 크롬은 여러분이 쓰시는 크롬과 다른, 독립된 환경에서 실행됩니다.\
+> 공지 : GADC에 의해 제어되는 크롬은 여러분이 쓰시는 크롬과 다른, 독립된 환경에서 실행됩니다.
 
 ### 3. Do your login just "ONCE"
 This program supports only Chrome browser(not Chromium!) and you need to login to HoYoLAB in Chrome
 because this progrma __does not__ save your HoYoLAB ID/PW.\
 HoYoLAB site basically support 'remember me' function. So, you don't have to do extra settings.\
-But, if auto-login goes disabled, then you need to login again.
+But, if auto-login goes disabled, then you need to login again.\
 이 프로그램은 크롬 브라우저만 지원하며 크로미움은 지원하지 않아요 :(\
 호요랩이 기본적으로 로그인 유지 기능을 지원하므로 추가적인 설정을 하실 필요는 없습니다.\
 단, 비밀번호 변경 등 자동 로그인 상태가 풀리는 경우에는 다시 로그인을 해야할 수 있습니다.
 
 That's all!\
 설정은 이게 끝이에요!
+
+
+## ❔ How it works, and what is that files
+- This program use Chrome's debug mode. It can make indepndent Chrome environment and GADC connect to HoYoLAB using that.
+So GADC cannot access anything in your "REAL" Chrome(a.k.a. your main Chrome). Of course, also does not access to debug Chrome's data.
+GADC.jar is the main file of GADC. It controls all process and flows when you execute GADC. VBScripts just show you message boxes.
+And finally, gc.bat clean the memory by suspend chrome driver process and VirtualEnv.bat compose debug bridge between GADC and debug Chrome.
+data.txt just represents the lastest day of your check-in.
+- 이 프로그램은 크롬의 디버그 모드를 사용합니다. 디버그 모드는 독립된 크롬 환경을 만들 수 있고 GADC은 이를 이용하여 호요랩에 접속합니다.
+그러므로 GADC은 여러분의 실제 크롬(즉 그냥 쓰시는 메인 크롬)의 어떠한 것에도 접근할 수 없습니다. 당연하지만, 디버그 크롬의 데이터에도 접근하지 않습니다.
+GADC.jar은 GADC의 메인 파일입니다. 모든 프로세스와 흐름을 제어하죠. VB스크립트는 그저 여러분에게 알림창을 띄웁니다.
+그리고 마지막으로, gc.bat은 크롬 드라이버 프로세스를 종료하여 메모리를 정리하며 VirtualEnv.bat은 GADC과 디버그 크롬 사이에 디버그 브릿지를 구성합니다.
+data.txt는 마지막으로 출석체크를 한 날짜를 나타냅니다.
 
 -----
 
