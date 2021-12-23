@@ -30,15 +30,17 @@ public class GADC {
     public static final String DRIVER_PATH = "scripts\\chromedriver.exe";
 
     public static void main(String[] args){
+        GADC gadc = null;
         try {
-            GADC gadc = new GADC();
+            gadc = new GADC();
             if (!gadc.checkIn()) {
-                gadc.driver.close();
-                suspendGADC();
+                gadc.suspendGADC();
             }
-        } catch (Exception e) {
+        } catch (Exception e) {  // If unhandled Exception causes
             SaveDataManager.writeStackLog(e);
-            suspendGADC();
+            if (gadc != null) {
+                gadc.suspendGADC();
+            }
         }
     }
 
@@ -255,10 +257,12 @@ public class GADC {
     /**
      * Exit with cleaning driver process and showing failed message.
      */
-    public static void suspendGADC() {
+    public void suspendGADC() {
         try {
+            driver.close();
+            Thread.sleep(3000);  // Wait for 3sec before execute gc.bat
             Runtime.getRuntime().exec("start \"" + SaveDataManager.AbsPath + "scripts\\gc.bat" + "\"");
-        } catch (IOException e) {
+        } catch (Exception e) {  // Catch the IOException, InterruptedException, and unknown Exception
             System.err.println("Failed to kill chromedriver. Please kill process manually");
         }
         MsgBoxManager.showFailed();
