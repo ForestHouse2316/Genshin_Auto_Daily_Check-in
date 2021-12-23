@@ -11,6 +11,19 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 
 [최신 버전 다운로드](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases/tag/GADC-1.0.1)\
 [DOWNLOAD Latest Version](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases/tag/GADC-1.0.1)
+
+-----
+
+## Notice!!! - How to update GADC
+- GADC is being updated frequently. Sorry for that. If you need to update the version, Just change your GADC.jar file.
+That's all. You can maintain your settings and check-in data if you don't remove any data files.\
+__Do not use any file in 1.0.0 This update method only works after 1.0.1__\
+We'll add auto-update function ASAP.
+- GADC이 자주 업데이트 되고 있습니다. 죄송합니다. 만약 버전 업데이트가 필요하시다면 GADC.jar 파일만 바꿔주세요.
+그러면 끝납니다. 데이터 파일만 삭제하지 않는다면 설정과 출첵 데이터를 유지하실 수 있습니다.\
+__절대 어떠한 1.0.0 파일도 이용하지 말아주세요. 이러한 업데이트 방식은 1.0.1 버전 이후에만 적용됩니다.__\
+최대한 빠른 시일내로 자동 업데이트 기능을 추가하도록 하겠습니다.
+
 -----
 
 ## ❔ How to use
