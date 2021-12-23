@@ -29,7 +29,8 @@ public class GADC {
 
     private WebDriver driver;
     private final ChromeOptions options;
-    public static final String DRIVER_NAME = "chromedriver.exe";
+    public static final String DRIVER_PATH_STR = "scripts\\chromedriver.exe";
+    public static final String CHECK_IN_SITE = "https://webstatic-sea.mihoyo.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481&mhy_auth_required=true";
 
     public static void main(String[] args){
         try {
@@ -48,7 +49,7 @@ public class GADC {
         options = new ChromeOptions();
 
 //        Greetings!
-        if (!new File("data.txt").exists()) {  // If this is the initial execution
+        if (!new File(SaveDataManager.DATA_PATH.toString()).exists()) {  // If this is the initial execution
             MsgBoxManager.showWelcome();
             try {
                 SaveDataManager.createDataFile();
@@ -79,7 +80,7 @@ public class GADC {
         } catch (DriverInitFailedError | IOException e) {
             System.err.println("Failed to compose debug mode. Chrome will work in automation mode and will not save any data");
         }
-        System.setProperty("webdriver.chrome.driver", DRIVER_NAME);
+        System.setProperty("webdriver.chrome.driver", DRIVER_PATH_STR);
         try {
             attachDriver();
         } catch (GADCException | IOException e) {
@@ -94,7 +95,7 @@ public class GADC {
      * @author ForestHouse2316
      */
     public boolean checkIn() {
-        driver.get("https://webstatic-sea.mihoyo.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481&mhy_auth_required=true");
+        driver.get(CHECK_IN_SITE);
         driver.findElement(new By.ByXPath("/html/body/div[1]/div[1]/div/div/div/div[2]/div[1]/img")).click();
         try {
             driver.findElement(new By.ByXPath("/html/body/div[4]/div/div/div/img[2]"));  // Log in popup's close button
@@ -132,7 +133,7 @@ public class GADC {
      * Also check chromedriver.exe and take a task when the driver version is old or there is no driver.
      */
     private void attachDriver() throws GADCException, IOException {
-        File file = new File("./" + DRIVER_NAME);
+        File file = new File("./" + DRIVER_PATH_STR);
         if (!file.exists()){  // If there is no driver
             System.out.println("Driver does not exist.");
             downloadDriverWithRetry();
@@ -202,7 +203,7 @@ public class GADC {
             String latestDriverVersion = s.hasNext() ? s.next() : "";
             System.out.println("Latest driver version : " + latestDriverVersion);
             InputStream download = new URL("https://chromedriver.storage.googleapis.com/" + latestDriverVersion + "/chromedriver_win32.zip").openStream();
-            Zip.unzip(download, new File("./"));
+            Zip.unzip(download, new File("./scripts/"));
             return true;
         } catch (IOException e) {
             System.err.println("Failed to download and unzip chromedriver");
@@ -217,27 +218,28 @@ public class GADC {
      * @throws IOException Throws when file handling has not been done completely
      */
     private void configChromeVirtualEnv() throws DriverInitFailedError, IOException{
+        final String BATCH_PATH = SaveDataManager.AbsPath+"scripts\\VirtualEnv.bat";
         File folder = new File(SaveDataManager.AbsPath+"VirtualEnv");
         if (!folder.exists()) {
             if (!folder.mkdir()) {
                 throw new IOException("Cannot make a new directory at " + SaveDataManager.AbsPath);
             }
         }
-        File executor = new File("VirtualEnv.bat");
+        File executor = new File(BATCH_PATH);
         try {
             executor.delete();
         } catch (Exception e) {
             System.out.println("An exception caused during deleting VirtualEnv.bat file\n" +
                     "If error caused again from that batch file, check out this exception first.");
         }
-        Path batPath = Paths.get(SaveDataManager.AbsPath + "VirtualEnv.bat");
+        Path batPath = Paths.get(BATCH_PATH);
         try {
             Files.createFile(batPath);
         } catch (IOException e) {
             throw new IOException("Failed to create VirtualEnv.bat");
         }
         String cmd = "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" " +
-                "--remote-debugging-port=9222 --user-data-dir=" + "\"" + SaveDataManager.AbsPath + "VirtualEnv" + "\"";  // Location of ChromeVirtualEnv
+                "--remote-debugging-port=9222 --user-data-dir=" + "\"" + BATCH_PATH + "\"";  // Location of ChromeVirtualEnv
         byte[] bytes = cmd.getBytes();
         try {
             Files.write(batPath, bytes);  // Create customized batch executor
@@ -246,7 +248,7 @@ public class GADC {
             throw new IOException("Cannot write into VirtualEnv.bat");
         }
         try {
-            Runtime.getRuntime().exec("\"" + SaveDataManager.AbsPath + "VirtualEnv.bat" + "\"");  // Open debug bridge
+            Runtime.getRuntime().exec("\"" + BATCH_PATH + "\"");  // Open debug bridge
         } catch (Exception e) {
             throw new DriverInitFailedError("An unknown error has been caused during executing batch file");
         }
@@ -277,23 +279,21 @@ class MsgBoxManager {
 
     public static void showLoginNotice() {
         try {
-            Runtime.getRuntime().exec("wscript \"" + SaveDataManager.AbsPath + "scripts\\LoginNotice.vbs" + "\"");
+            Runtime.getRuntime().exec("wscript \"" + LOGIN_NOTICE_VBS_PATH + "\"");
         } catch (IOException ignored) {}
         System.out.println("VBS : login notice");
     }
 
     public static void showWelcome() {
         try {
-            Runtime.getRuntime().exec("wscript \"" + SaveDataManager.AbsPath + "scripts\\welcome.vbs" + "\"");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            Runtime.getRuntime().exec("wscript \"" + WELCOME_VBS_PATH + "\"");
+        } catch (IOException ignored) {}
         System.out.println("VBS : welcome");
     }
 
     public static void showFailed() {
         try {
-            Runtime.getRuntime().exec("wscript \"" + SaveDataManager.AbsPath + "scripts\\failed.vbs" + "\"");  // Show GADC failed to do check-in automatically...
+            Runtime.getRuntime().exec("wscript \"" + FAILED_VBS_PATH + "\"");  // Show GADC failed to do check-in automatically...
         } catch (IOException ignored) {}
         System.out.println("VBS : failed");
     }
@@ -314,7 +314,7 @@ class SaveDataManager {
     public static final String TIME_INFO;
     public static final String CURRENT_HOUR;
     public static final String AbsPath = new File("scripts\\welcome.vbs").getAbsolutePath().replace("scripts\\welcome.vbs", "");  // C:\~path~\
-    private static final Path DATA_PATH = Paths.get(AbsPath + "\\scripts\\data.txt");
+    public static final Path DATA_PATH = Paths.get(AbsPath + "\\scripts\\data.txt");
 
     static {
         String[] date = new Date().toString().split(" ");
