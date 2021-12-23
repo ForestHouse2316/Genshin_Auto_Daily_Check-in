@@ -63,7 +63,7 @@ Accessing registry path is : HKEY_CURRENT_USER\Software\Google\Chrome\BLBeacon\v
 ```
 
 ### Internet Access
-- GADC only uses the internet when GADC needs to download(or update) chrome driver. There is no internet connection except that.
+- GADC only uses the internet when GADC needs to download(or update) chrome driver or latest version of GADC. There is no internet connection except that.
 - GADC은 크롬 드라이버를 다운로드 하거나 업데이트 할 때에만 인터넷을 사용합니다. 이외의 인터넷 연결은 전혀 없습니다.
 
 ### About HoYoLAB
@@ -85,7 +85,8 @@ If you use this program and connect to HoYoLAB (or other sites managed by MiHoYo
 |Java|Details|
 |:---:|:------------|
 |1.0.0|Initial version of GADC|
-|*1.0.1*🛠️|[BugFix]|
+|1.0.1|Fix bugs: initial auto check-in, Clean up duplicated files in jar|
+|*1.1.0*🛠️|Supports auto update through GitHub release|
 
 ### Python Version
 
