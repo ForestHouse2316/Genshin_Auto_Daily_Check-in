@@ -9,10 +9,18 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 원신 일일 출첵 매일 까먹으셔서 당황하셨어요? 저도 많이 당황했습니다 ^^\
 자동 출첵 한번 잡숴보세요 ;)
 
-최신버전 다운로드 버튼 -> [DOWNLOAD](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases/tag/GADC-1.0.1)
+[최신 버전 다운로드](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases/tag/GADC-1.0.1)\
+[DOWNLOAD Latest Version](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases/tag/GADC-1.0.1)
 -----
 
 ## ❔ How to use
+
+### Download it
+Download latest version of GADC. It's in a zip file. (EN - English Version)\
+The file you need to execute is "GADC.jar"
+최신 버전의 GADC을 다운받아주세요. 압축 파일로 되어 있습니다. (KR - 한국어 버전)\
+여러분이 실행해야할 파일은 "GADC.jar" 입니다.
+
 ### 1. Install Java
 You just need JRE(or JDK). It's the same method as installing Java for Minecraft(Java Edition)!
 If it's already installed, you don't have to re-install it.\
@@ -33,7 +41,7 @@ We'll prepare that function ASAP.
 최대한 빠른 시일 내로 해당 기능을 준비하도록 하겠습니다.
 > 공지 : GADC에 의해 제어되는 크롬은 여러분이 쓰시는 크롬과 다른, 독립된 환경에서 실행됩니다.\
 
-### Do your login just "ONCE"
+### 3. Do your login just "ONCE"
 This program supports only Chrome browser(not Chromium!) and you need to login to HoYoLAB in Chrome
 because this progrma __does not__ save your HoYoLAB ID/PW.\
 HoYoLAB site basically support 'remember me' function. So, you don't have to do extra settings.\
