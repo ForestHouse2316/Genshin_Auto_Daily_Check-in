@@ -121,6 +121,7 @@ public class GADC {
             System.out.println("Today's check is already done.");
         }
         SaveDataManager.writeDate();
+        MsgBoxManager.showComplete();
         System.out.println("Check-in task has finished");
         driver.close();
         return true;
@@ -269,6 +270,11 @@ public class GADC {
  * Execute and manage the visual basic script message boxes
  */
 class MsgBoxManager {
+    private static final String LOGIN_NOTICE_VBS_PATH = SaveDataManager.AbsPath + "scripts\\LoginNotice.vbs";
+    private static final String WELCOME_VBS_PATH =SaveDataManager.AbsPath + "scripts\\welcome.vbs";
+    private static final String FAILED_VBS_PATH = SaveDataManager.AbsPath + "scripts\\failed.vbs";
+    private static final String COMPLETE_VBS_PATH = SaveDataManager.AbsPath + "scripts\\complete.vbs";
+
     public static void showLoginNotice() {
         try {
             Runtime.getRuntime().exec("wscript \"" + SaveDataManager.AbsPath + "scripts\\LoginNotice.vbs" + "\"");
@@ -290,6 +296,13 @@ class MsgBoxManager {
             Runtime.getRuntime().exec("wscript \"" + SaveDataManager.AbsPath + "scripts\\failed.vbs" + "\"");  // Show GADC failed to do check-in automatically...
         } catch (IOException ignored) {}
         System.out.println("VBS : failed");
+    }
+
+    public static void showComplete() {
+        try {
+            Runtime.getRuntime().exec("wscript \"" + COMPLETE_VBS_PATH + "\"");  // Show GADC failed to do check-in automatically...
+        } catch (IOException ignored) {}
+        System.out.println("VBS : complete");
     }
 }
 
