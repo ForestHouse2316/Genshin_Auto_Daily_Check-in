@@ -21,12 +21,10 @@ import java.util.Scanner;
 
 /**
  * Genshin Auto Daily Check-in
- * @version Java 1.0.0
+ * @version Java 1.0.1
  * @see <a href="https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in">GitHub Repository</a>
  */
-
 public class GADC {
-
     private WebDriver driver;
     private final ChromeOptions options;
     public static final String DRIVER_PATH = "scripts\\chromedriver.exe";
@@ -316,6 +314,7 @@ class SaveDataManager {
     public static final String CURRENT_HOUR;
     public static final String AbsPath = new File("scripts\\welcome.vbs").getAbsolutePath().replace("scripts\\welcome.vbs", "");  // C:\~path~\
     public static final Path DATA_PATH = Paths.get(AbsPath + "\\scripts\\data.txt");
+    public static final String GADC_VERSION = "1.0.1";
 
     static {
         String[] date = new Date().toString().split(" ");
@@ -347,7 +346,7 @@ class SaveDataManager {
         String msg = e.getMessage();
         StackTraceElement[] stacks = e.getStackTrace();
         StringBuilder logBuilder = new StringBuilder();
-        logBuilder.append(msg).append("\n");
+        logBuilder.append("GADC Version : ").append(GADC_VERSION).append("\n\n").append(msg).append("\n");
         for (StackTraceElement s : stacks) {
             logBuilder.append(s).append("\n");
         }
