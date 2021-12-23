@@ -68,7 +68,7 @@ data.txt는 마지막으로 출석체크를 한 날짜를 나타냅니다.
 
 -----
 
-## Terms&Policy
+## ⚖️ Terms&Policy
 
 ### About source code disclosure
 - All resources of GADC are following open-source policy. You can check all codes of GADC in [scripts](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/tree/main/scripts_en) and [src](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/tree/main/src).
@@ -140,7 +140,7 @@ because MiHoYo has whole permission that interprets this.
 |1.0.1|Add additional vbs messages|
 ||[Fix bugs] initial auto check-in, Clean up duplicated files in jar|
 ||[Change] Edit some sentences of vbs messages, Refactor codes|
-|*1.0.2*🛠️|TBA|
+|*1.0.2*🛠️|[Fix bugs] Bug that GC process does not work normally after check-in|
 |*1.1.0*🛠️|Supports auto update through GitHub release|
 ||[Fix bugs] Unknown bugs randomly caused at initial startup|
 
