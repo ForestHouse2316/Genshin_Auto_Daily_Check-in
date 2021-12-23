@@ -1,0 +1,1 @@
+result = msgbox("오늘의 출석체크를 완료했어요!", vbOkOnly,"Genshin Auto Check-in")

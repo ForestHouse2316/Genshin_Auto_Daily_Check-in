@@ -7,3 +7,4 @@ VirtualEnv.bat
 src/META-INF
 data.txt
 Versions
+.log
