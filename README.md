@@ -36,10 +36,12 @@ If it's hard to register GADC into startup program, it's okay not to do that. Ju
 We'll prepare that function ASAP.
 > Notice : The Chrome remoted by GADC will be executed in independent environment.
 
+
 파일을 다운받고, 시작프로그램에 등록만 하면 알아서~ 매일 한 번, 컴퓨터를 킬 때마다 자동으로 출첵을 해준답니다 ^^\
 만약 jre를 시작프로그램으로 등록하는 과정이 어렵다면, 하지 않으셔도 괜찮습니다. 매일 한 번 실행시켜 주시면 됩니다.\
 최대한 빠른 시일 내로 해당 기능을 준비하도록 하겠습니다.
 > 공지 : GADC에 의해 제어되는 크롬은 여러분이 쓰시는 크롬과 다른, 독립된 환경에서 실행됩니다.
+
 
 ### 3. Do your login just "ONCE"
 This program supports only Chrome browser(not Chromium!) and you need to login to HoYoLAB in Chrome
@@ -69,6 +71,10 @@ data.txt는 마지막으로 출석체크를 한 날짜를 나타냅니다.
 -----
 
 ## ⚖️ Terms&Policy
+
+### About source code disclosure
+- All resources of GADC are following open-source policy. You can check all codes of GADC in [scripts](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/tree/main/scripts_en) and [src](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/tree/main/src).
+- GADC의 모든 리소스는 오픈소스 정책을 따릅니다. [스크립트 폴더](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/tree/main/scripts)와 [소스코드 폴더](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/tree/main/src)에서 GADC의 모든 코드들을 확인하실 수 있습니다.
 
 ### About source code disclosure
 - All resources of GADC are following open-source policy. You can check all codes of GADC in [scripts](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/tree/main/scripts_en) and [src](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/tree/main/src).
