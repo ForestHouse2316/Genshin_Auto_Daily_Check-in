@@ -11,6 +11,16 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 
 [최신 버전 다운로드](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases/tag/GADC-1.0.1)\
 [DOWNLOAD Latest Version](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases/tag/GADC-1.0.1)
+
+-----
+
+## Notice!!! - How to update GADC manually
+- If you want to do update manually, please keep your VirtualEnv folder to maintain your settings.\
+Move VirtualEnv folder into the folder of a new version of GADC. Place VirtualEnv folder to same location of GADC.jar and scripts folder.
+- 만약 수동으로 업데이트를 하고자 하신다면, 셋팅값 유지를 위해 VirtualEnv 폴더는 유지해주시기 바랍니다.\
+새 버전의 GADC 폴더로 VirtualEnv 폴더를 옮겨주세요. GADC.jar 와 scripts 폴더와 같은 위치에 놓아주세요.
+
+
 -----
 
 ## ❔ How to use
@@ -146,7 +156,8 @@ because MiHoYo has whole permission that interprets this.
 |1.0.1|Add additional vbs messages|
 ||[Fix bugs] initial auto check-in, Clean up duplicated files in jar|
 ||[Change] Edit some sentences of vbs messages, Refactor codes|
-|*1.0.2*🛠️|[Fix bugs] Bug that GC process does not work normally after check-in|
+|*1.0.2-beta*|[Fix bugs] Bug that GC process does not work normally after check-in|
+|*1.0.3*🛠️|Add auto starting function|
 |*1.1.0*🛠️|Supports auto update through GitHub release|
 ||[Fix bugs] Unknown bugs randomly caused at initial startup|
 
