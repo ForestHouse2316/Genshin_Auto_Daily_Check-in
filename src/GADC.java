@@ -21,7 +21,7 @@ import java.util.Scanner;
 
 /**
  * Genshin Auto Daily Check-in
- * @version 1.0.2
+ * @version 1.0.2-beta.2
  * @see <a href="https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in">GitHub Repository</a>
  */
 public class GADC {
@@ -328,7 +328,7 @@ class SaveDataManager {
     public static final String CURRENT_HOUR;
     public static final String AbsPath = new File("scripts\\welcome.vbs").getAbsolutePath().replace("scripts\\welcome.vbs", "");  // C:\~path~\
     public static final Path DATA_PATH = Paths.get(AbsPath + "\\scripts\\data.txt");
-    public static final String GADC_VERSION = "1.0.2";  // TODO Change version before release
+    public static final String GADC_VERSION = "1.0.2-beta.2";  // TODO Change version before release
 
     static {
         String[] date = new Date().toString().split(" ");
