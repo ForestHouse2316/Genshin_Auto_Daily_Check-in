@@ -14,12 +14,19 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 
 -----
 
-## Notice!!! - How to update GADC manually
+## [Notice] - How to update GADC manually
 - If you want to do update manually, please keep your VirtualEnv folder to maintain your settings.\
 Move VirtualEnv folder into the folder of a new version of GADC. Place VirtualEnv folder to same location of GADC.jar and scripts folder.
 - 만약 수동으로 업데이트를 하고자 하신다면, 셋팅값 유지를 위해 VirtualEnv 폴더는 유지해주시기 바랍니다.\
 새 버전의 GADC 폴더로 VirtualEnv 폴더를 옮겨주세요. GADC.jar 와 scripts 폴더와 같은 위치에 놓아주세요.
 
+## [Notice] - What kind of device does GADC support?
+- Basically support Windows(10 and higher version, but might support 7 and 8 too)\
+If you want to use GADC in Mac or Linux, you should download appropriate chromedriver.exe manually.\
+Google it like this : "how to download chromedriver"
+- 기본적으로 윈도우스를 지원합니다.(10버전 이상, 아마도 7 및 8버전도 지원합니다)\
+만약 Mac 이나 Linux 에서 GADC을 사용하고자 하신다면, 알맞은 chromedriver.exe 를 직접 다운로드 하셔야 합니다.\
+구글에 "크롬 드라이버 다운방법" 을 검색해보세요.
 
 -----
 
@@ -77,6 +84,12 @@ data.txt just represents the lastest day of your check-in.
 GADC.jar은 GADC의 메인 파일입니다. 모든 프로세스와 흐름을 제어하죠. VB스크립트는 그저 여러분에게 알림창을 띄웁니다.
 그리고 마지막으로, gc.bat은 크롬 드라이버 프로세스를 종료하여 메모리를 정리하며 VirtualEnv.bat은 GADC과 디버그 크롬 사이에 디버그 브릿지를 구성합니다.
 data.txt는 마지막으로 출석체크를 한 날짜를 나타냅니다.
+
+### Why GADC?
+- Yes, there is a lot of auto check-in program except GADC. But we wanted to make it far easier to use and keep your account's security.
+For these reasons, GADC has made by Java which is easy to use. And doesn't save any user's data, also use independent Chrome environment.
+- 네, GADC을 제외하고도 많은 자동 출첵 프로그램들이 있습니다. 하지만 우리는 이것을 사용하기 더 쉽게 만들고 여러분의 계정 보안을 유지하기를 원했습니다.
+이러한 이유들을 위해, GADC은 사용하기 쉬운 Java로 만들어졌습니다. 그리고 어떠한 유저의 데이터도 저장하지 않고, 또한 독립된 크롬 환경을 사용합니다.
 
 -----
 
