@@ -9,8 +9,8 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 원신 일일 출첵 매일 까먹으셔서 당황하셨어요? 저도 많이 당황했습니다 ^^\
 자동 출첵 한번 잡숴보세요 ;)
 
-[최신 버전 다운로드 >>>](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases/tag/GADC-1.0.1)\
-[DOWNLOAD Latest Version >>>](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases/tag/GADC-1.0.1)
+[최신 버전 다운로드 1.X.X-KR.zip >>>](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases)\
+[DOWNLOAD Latest Version 1.X.X-EN.zip >>>](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases)
 
 -----
 
