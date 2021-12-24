@@ -15,6 +15,7 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 -----
 
 ## [Notice] - How to update GADC manually
+
 - If you want to do update manually, please keep your VirtualEnv folder to maintain your settings.\
 Move VirtualEnv folder into the folder of a new version of GADC. Place VirtualEnv folder to same location of GADC.jar and scripts folder.
 - 만약 수동으로 업데이트를 하고자 하신다면, 셋팅값 유지를 위해 VirtualEnv 폴더는 유지해주시기 바랍니다.\
@@ -27,6 +28,7 @@ Google it like this : "how to download chromedriver"
 - 기본적으로 윈도우스를 지원합니다.(10버전 이상, 아마도 7 및 8버전도 지원합니다)\
 만약 Mac 이나 Linux 에서 GADC을 사용하고자 하신다면, 알맞은 chromedriver.exe 를 직접 다운로드 하셔야 합니다.\
 구글에 "크롬 드라이버 다운방법" 을 검색해보세요.
+
 
 -----
 
