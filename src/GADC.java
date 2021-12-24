@@ -114,6 +114,9 @@ public class GADC {
             }
         } catch (NoSuchElementException e) {  // If already logged in
             System.out.println("Already logged in");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ignored) {}
         }
         try {
             driver.findElement(By.className("components-home-assets-__sign-content_---active---36unD3")).click();
