@@ -21,7 +21,7 @@ import java.util.Scanner;
 
 /**
  * Genshin Auto Daily Check-in
- * @version Java 1.0.1
+ * @version 1.0.2
  * @see <a href="https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in">GitHub Repository</a>
  */
 public class GADC {
@@ -121,9 +121,9 @@ public class GADC {
             System.out.println("Today's check is already done.");
         }
         SaveDataManager.writeDate();
+        cleanDriverProcess();
         MsgBoxManager.showComplete();
         System.out.println("Check-in task has finished");
-        driver.close();
         return true;
     }
 
@@ -258,15 +258,24 @@ public class GADC {
      * Exit with cleaning driver process and showing failed message.
      */
     public void suspendGADC() {
+        cleanDriverProcess();
+        MsgBoxManager.showFailed();
+        System.exit(0);
+    }
+
+    /**
+     * Clean driver process
+     */
+    private void cleanDriverProcess() {
         try {
-            driver.close();
+            if (driver != null) {
+                driver.close();
+            }
             Thread.sleep(3000);  // Wait for 3sec before execute gc.bat
-            Runtime.getRuntime().exec("start \"" + SaveDataManager.AbsPath + "scripts\\gc.bat" + "\"");
+            Runtime.getRuntime().exec("taskkill/im scripts\\chromedriver.exe /f /t");
         } catch (Exception e) {  // Catch the IOException, InterruptedException, and unknown Exception
             System.err.println("Failed to kill chromedriver. Please kill process manually");
         }
-        MsgBoxManager.showFailed();
-        System.exit(0);
     }
 }
 
@@ -317,13 +326,15 @@ class SaveDataManager {
     public static final String CURRENT_HOUR;
     public static final String AbsPath = new File("scripts\\welcome.vbs").getAbsolutePath().replace("scripts\\welcome.vbs", "");  // C:\~path~\
     public static final Path DATA_PATH = Paths.get(AbsPath + "\\scripts\\data.txt");
-    public static final String GADC_VERSION = "1.0.1";
+    public static final String GADC_VERSION = "1.0.2";  // TODO Change version before release
 
     static {
         String[] date = new Date().toString().split(" ");
         TIME_INFO = date[3].replace(":", "_");
         CURRENT_HOUR = TIME_INFO.split("_")[0];
         DAY_INFO = Integer.parseInt(CURRENT_HOUR) >= 1 ? date[2] : String.valueOf((Integer.parseInt(date[2]) - 1));  // HoYoLAB server is initialized at 1 a.m.
+        System.out.println("Current hour : " + CURRENT_HOUR);
+        System.out.println("Server date : " + DAY_INFO);
     }
 
     public static void createDataFile() throws IOException{
