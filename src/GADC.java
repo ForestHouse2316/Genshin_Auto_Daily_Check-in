@@ -270,9 +270,11 @@ public class GADC {
         try {
             if (driver != null) {
                 driver.close();
+                driver.quit();
+                driver = null;
             }
             Thread.sleep(3000);  // Wait for 3sec before execute gc.bat
-            Runtime.getRuntime().exec("taskkill/im scripts\\chromedriver.exe /f /t");
+            Runtime.getRuntime().exec("taskkill /im scripts\\chromedriver.exe /f /t");
         } catch (Exception e) {  // Catch the IOException, InterruptedException, and unknown Exception
             System.err.println("Failed to kill chromedriver. Please kill process manually");
         }
