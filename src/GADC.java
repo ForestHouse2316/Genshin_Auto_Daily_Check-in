@@ -121,9 +121,9 @@ public class GADC {
             System.out.println("Today's check is already done.");
         }
         SaveDataManager.writeDate();
+        cleanDriverProcess();
         MsgBoxManager.showComplete();
         System.out.println("Check-in task has finished");
-        driver.close();
         return true;
     }
 
@@ -258,15 +258,24 @@ public class GADC {
      * Exit with cleaning driver process and showing failed message.
      */
     public void suspendGADC() {
+        cleanDriverProcess();
+        MsgBoxManager.showFailed();
+        System.exit(0);
+    }
+
+    /**
+     * Clean driver process
+     */
+    private void cleanDriverProcess() {
         try {
-            driver.close();
+            if (driver != null) {
+                driver.close();
+            }
             Thread.sleep(3000);  // Wait for 3sec before execute gc.bat
             Runtime.getRuntime().exec("taskkill/im scripts\\chromedriver.exe /f /t");
         } catch (Exception e) {  // Catch the IOException, InterruptedException, and unknown Exception
             System.err.println("Failed to kill chromedriver. Please kill process manually");
         }
-        MsgBoxManager.showFailed();
-        System.exit(0);
     }
 }
 
@@ -324,6 +333,8 @@ class SaveDataManager {
         TIME_INFO = date[3].replace(":", "_");
         CURRENT_HOUR = TIME_INFO.split("_")[0];
         DAY_INFO = Integer.parseInt(CURRENT_HOUR) >= 1 ? date[2] : String.valueOf((Integer.parseInt(date[2]) - 1));  // HoYoLAB server is initialized at 1 a.m.
+        System.out.println("Current hour : " + CURRENT_HOUR);
+        System.out.println("Server date : " + DAY_INFO);
     }
 
     public static void createDataFile() throws IOException{
