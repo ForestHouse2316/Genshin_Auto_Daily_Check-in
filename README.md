@@ -14,7 +14,7 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 
 -----
 
-## [Notice] - GADC is not working properly after Dec.25
+## [Notice] - GADC is not working properly since Dec.25
 - It seems there was a hidden patch at HoYoLAB. Also, the login session is not being sustained.\
 We're finding another way to check-in automatically. Please wait for some days.
 - 호요랩에 잠수함 패치가 있었던 것 같습니다. 로그인 세션도 유지가 되지 않습니다.\
