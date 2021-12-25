@@ -178,12 +178,12 @@ because MiHoYo has whole permission that interprets this.
 |1.0.2-beta.2|Change the version information of the code|
 ||Remove dependency about gc.bat -> Use this as manual taskkill command|
 ||[Bugfix] Change the mechanism of the 'taskkill' command execution|
-|1.0.2-rc.1|TBA|
-|*1.0.3-beta.1*🛠️|Add auto starting function|
+|*1.0.2-beta.3*🛠️|Renewal version to be adaptable for newly patched HoYoLAB(2021.12.25)|
+|*1.0.2-rc.1*|TBA|
+|*1.0.3-alpha.1*|Add auto starting function|
 ||Add hiding option. *(Experimental)*|
 ||Add explanation about "how to download chrome driver" for Mac and Linux users|
-|*1.1.0*🛠️|Supports auto update through GitHub release|
-||[Fix bugs] Unknown bugs randomly caused at initial startup|
+|*1.1.0*|Supports auto update through GitHub release|
 
 
 ### Python Version
