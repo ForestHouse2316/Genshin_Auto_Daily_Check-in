@@ -362,10 +362,11 @@ class SaveDataManager {
         } catch (IOException ignored) {}
     }
     public static void writeStackLog(Exception e) {
+        String name = e.getClass().getCanonicalName();
         String msg = e.getMessage();
         StackTraceElement[] stacks = e.getStackTrace();
         StringBuilder logBuilder = new StringBuilder();
-        logBuilder.append("GADC Version : ").append(GADC_VERSION).append("\n\n").append(msg).append("\n");
+        logBuilder.append("GADC Version : ").append(GADC_VERSION).append("\n\n").append("Exception name : ").append(name!=null ? name : "").append("     ").append(msg).append("\n");
         for (StackTraceElement s : stacks) {
             logBuilder.append(s).append("\n");
         }
