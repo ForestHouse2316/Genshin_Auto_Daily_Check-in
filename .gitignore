@@ -4,7 +4,6 @@ chromedriver.exe
 done.txt
 VirtualEnv
 VirtualEnv.bat
-src/META-INF
 data.txt
 Versions
 .log
