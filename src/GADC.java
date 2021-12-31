@@ -1,11 +1,12 @@
 import exception.DriverInitFailedError;
 import exception.GADCException;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.io.Zip;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -15,6 +16,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -26,8 +28,11 @@ import java.util.Scanner;
  */
 public class GADC {
     private WebDriver driver;
+    private final WebDriverWait EWait;
+    private Actions actions;
     private final ChromeOptions options;
     public static final String DRIVER_PATH = "scripts\\chromedriver.exe";
+    public static boolean isFirstExecution = false;
 
     public static void main(String[] args){
         GADC gadc = null;
@@ -50,6 +55,7 @@ public class GADC {
 //        Greetings!
         if (!new File(SaveDataManager.DATA_PATH.toString()).exists()) {  // If this is the initial execution
             MsgBoxManager.showWelcome();
+            isFirstExecution = true;
             try {
                 SaveDataManager.createDataFile();
             } catch (IOException e) {
@@ -68,11 +74,12 @@ public class GADC {
         }
 
         Will be implemented in next update :) */
-
-        if (SaveDataManager.readDate().equals(SaveDataManager.DAY_INFO)) {
-            System.out.println("Already checked-in");
-            System.exit(0);
-        }
+        try {
+            if (SaveDataManager.readDate().equals(SaveDataManager.DAY_INFO)) {
+                System.out.println("Already checked-in");
+                System.exit(0);
+            }
+        } catch (IndexOutOfBoundsException ignored) {}  // If data.txt is null
         try {
             configChromeVirtualEnv();
             options.setExperimentalOption("debuggerAddress", "127.0.0.1:9222");  // Set virtual env to remember login token.
@@ -85,6 +92,7 @@ public class GADC {
         } catch (GADCException | IOException e) {
             suspendGADC();
         }
+        EWait =  new WebDriverWait(driver, Duration.ofMillis(5000));
     }
 
 
@@ -92,36 +100,63 @@ public class GADC {
      * This part is the main part of GADC.
      * All interactions with Chrome and webpage are executed here.
      * @author ForestHouse2316
+     * TODO Refactor code : Modularize Ewait.until()
      */
     public boolean checkIn() {
-        driver.get("https://webstatic-sea.mihoyo.com/ys/event/signin-sea-v3/index.html?act_id=e202102251931481&mhy_auth_required=true");
-        driver.findElement(new By.ByXPath("/html/body/div[1]/div[1]/div/div/div/div[2]/div[1]/img")).click();
-        try {
-            driver.findElement(new By.ByXPath("/html/body/div[4]/div/div/div/img[2]"));  // Log in popup's close button
+        driver.get("https://www.hoyolab.com/");
+        if (isFirstExecution) {
+            try {
+                Thread.sleep(5000);  // Give a term for initial setup of debug Chrome. Page loading will take more seconds than usual.
+            } catch (InterruptedException ignored) {}
+        }
+        try{  // If there is no cookie, select Genshin as a main topic automatically
+            EWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__layout\"]/div/div[4]/div/div/div/div[2]/div[1]"))).click();  // Genshin button
+            driver.findElement(By.xpath("//*[@id=\"__layout\"]/div/div[4]/div/div/div/div[3]/div")).click();  // Confirm button
+            Thread.sleep(5000);
+        } catch (NoSuchElementException | TimeoutException | InterruptedException e) {
+            System.out.println("Topic selecting is not required");
+        }
+
+        try {  // Check login status
+            EWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__layout\"]/div/div[1]/div/div/div[3]/div[3]/div[1]"))).click();  // Profile img
+            EWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"__layout\"]/div/div[1]/div/div/div[3]/div[3]/div[2]/div[1]/div[3]/ul/li/div")));  // Check is there a log-out button, raise exception when need login
+            System.out.println("Already logged in");
+        } catch (NoSuchElementException | TimeoutException e) {  // If log-out state
+            WebElement loginBtn = driver.findElement(By.xpath("//*[@id=\"__layout\"]/div/div[1]/div/div/div[3]/div[3]/div[2]/div[1]/div[2]/ul/li/div"));  // Log-in button
+            clickAfterHovering(loginBtn);
+
+            // Login observing
             MsgBoxManager.showLoginNotice();
             while (true) {
                 try {
-                    driver.findElement(new By.ByXPath("/html/body/div[4]/div/div/div/img[2]"));  // Wait until login window close
-                } catch (NoSuchElementException e) {
+                    driver.findElement(By.xpath("/html/body/div[6]/div/div/div/img[2]"));  // Log in popup's close button, wait until login window close
+                } catch (NoSuchElementException e2) {
                     try {
                         Thread.sleep(3000);  // Wait for three seconds to give the term that site change its HTML
                     } catch (InterruptedException ignored) {}
                     break;
                 }
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(100);  // Observing interval
                 } catch (InterruptedException ignored) {}
             }
-        } catch (NoSuchElementException e) {  // If already logged in
-            System.out.println("Already logged in");
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException ignored) {}
         }
+
+        WebElement toolBox = driver.findElement(By.xpath("//*[@id=\"__layout\"]/div/div[2]/div/div/div[1]/div/div/div/div/div/div[1]/div[6]/span"));  // Tool box icon
+        clickAfterHovering(toolBox);
+        WebElement checkInMenu = EWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__layout\"]/div/div[2]/div/div/div[2]/div[1]/div[2]/div[1]")));  // Check-in menu
+        clickAfterHovering(checkInMenu);  // Now move to check-in site
+
+        driver.switchTo().window((String) driver.getWindowHandles().toArray()[0]);  // Focus HoYoLAB
+        driver.close();  // Close HoYoLAB tab, because check-in site is opened in a new tab
+        driver.switchTo().window((String) driver.getWindowHandles().toArray()[0]);  // Focus Check-in site
         try {
-            driver.findElement(By.className("components-home-assets-__sign-content_---active---36unD3")).click();
-        } catch (NoSuchElementException e) {
-            System.out.println("Today's check is already done.");
+            Thread.sleep(2000);
+            driver.findElement(By.className("components-home-assets-__sign-content_---active---36unD3")).click();  // Today's location
+            Thread.sleep(2000);
+            System.out.println("Checked");
+        } catch (NoSuchElementException | TimeoutException | InterruptedException e) {
+            System.out.println("Today's check-in is already done");
         }
         SaveDataManager.writeDate();
         cleanDriverProcess();
@@ -255,6 +290,18 @@ public class GADC {
         } catch (Exception e) {
             throw new DriverInitFailedError("An unknown error has been caused during executing batch file");
         }
+    }
+
+    /**
+     * Use hover option to disguise as a human
+     */
+    private void clickAfterHovering(WebElement element) {
+        if (actions == null) { actions = new Actions(driver); }
+        actions.moveToElement(element).build().perform();  // Hover
+        try {
+            Thread.sleep(200 + ((int) (Math.random() * 300)));  // Wait 200~500 millis
+        } catch (InterruptedException ignored) {}
+        element.click();  // Click
     }
 
     /**
