@@ -32,6 +32,7 @@ public class GADC {
     private Actions actions;
     private final ChromeOptions options;
     public static final String DRIVER_PATH = "scripts\\chromedriver.exe";
+    public static boolean isFirstExecution = false;
 
     public static void main(String[] args){
         GADC gadc = null;
@@ -54,6 +55,7 @@ public class GADC {
 //        Greetings!
         if (!new File(SaveDataManager.DATA_PATH.toString()).exists()) {  // If this is the initial execution
             MsgBoxManager.showWelcome();
+            isFirstExecution = true;
             try {
                 SaveDataManager.createDataFile();
             } catch (IOException e) {
@@ -102,6 +104,11 @@ public class GADC {
      */
     public boolean checkIn() {
         driver.get("https://www.hoyolab.com/");
+        if (isFirstExecution) {
+            try {
+                Thread.sleep(5000);  // Give a term for initial setup of debug Chrome. Page loading will take more seconds than usual.
+            } catch (InterruptedException ignored) {}
+        }
         try{  // If there is no cookie, select Genshin as a main topic automatically
             EWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"__layout\"]/div/div[4]/div/div/div/div[2]/div[1]"))).click();  // Genshin button
             driver.findElement(By.xpath("//*[@id=\"__layout\"]/div/div[4]/div/div/div/div[3]/div")).click();  // Confirm button
