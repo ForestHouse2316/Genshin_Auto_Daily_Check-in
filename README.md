@@ -9,10 +9,16 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 원신 일일 출첵 매일 까먹으셔서 당황하셨어요? 저도 많이 당황했습니다 ^^\
 자동 출첵 한번 잡숴보세요 ;)
 
-[최신 버전 다운로드 1.X.X-KR.zip >>>](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases)\
-[DOWNLOAD Latest Version 1.X.X-EN.zip >>>](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases)
+### [출시 버전 보기 (다운로드) 1.X.X-KR.zip - - - - >](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases)
+### [View Released Versions (Download) 1.X.X-EN.zip - - - - >](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases)
 
 -----
+
+## [Notice] - GADC is not working properly since Dec.25
+- It seems there was a hidden patch at HoYoLAB. Also, the login session is not being sustained.\
+We're finding another way to check-in automatically. Please wait for some days.
+- 호요랩에 잠수함 패치가 있었던 것 같습니다. 로그인 세션도 유지가 되지 않습니다.\
+출석체크를 자동으로 하기 위한 다른 방법을 찾고 있으니 조금만 기다려주시기 바랍니다.
 
 ## [Notice] - How to update GADC manually
 
@@ -80,12 +86,14 @@ That's all!\
 So GADC cannot access anything in your "REAL" Chrome(a.k.a. your main Chrome). Of course, also does not access to debug Chrome's data.
 GADC.jar is the main file of GADC. It controls all process and flows when you execute GADC. VBScripts just show you message boxes.
 And finally, gc.bat clean the memory by suspend chrome driver process and VirtualEnv.bat compose debug bridge between GADC and debug Chrome.
-data.txt just represents the lastest day of your check-in.
+data.txt just represents the lastest day of your check-in.\
+Additionally, Selenium's "chrome not reachable" Exception record your internal IP into crash log, but don't worry. It's just "internal" IP, not your "official" IP.
 - 이 프로그램은 크롬의 디버그 모드를 사용합니다. 디버그 모드는 독립된 크롬 환경을 만들 수 있고 GADC은 이를 이용하여 호요랩에 접속합니다.
 그러므로 GADC은 여러분의 실제 크롬(즉 그냥 쓰시는 메인 크롬)의 어떠한 것에도 접근할 수 없습니다. 당연하지만, 디버그 크롬의 데이터에도 접근하지 않습니다.
 GADC.jar은 GADC의 메인 파일입니다. 모든 프로세스와 흐름을 제어하죠. VB스크립트는 그저 여러분에게 알림창을 띄웁니다.
 그리고 마지막으로, gc.bat은 크롬 드라이버 프로세스를 종료하여 메모리를 정리하며 VirtualEnv.bat은 GADC과 디버그 크롬 사이에 디버그 브릿지를 구성합니다.
-data.txt는 마지막으로 출석체크를 한 날짜를 나타냅니다.
+data.txt는 마지막으로 출석체크를 한 날짜를 나타냅니다.\
+추가적으로, 셀레늄 라이브러리의 "chrome not reachable" 예외는 크래시 로그에 여러분의 "내부" IP 주소를 기록합니다만, 걱정하실 필요 없습니다. 말그대로 "내부"IP 주소로, "공인"IP 주소가 아닙니다.
 
 ### Why GADC?
 - Yes, there is a lot of auto check-in program except GADC. But we wanted to make it far easier to use and keep your account's security.
@@ -176,10 +184,12 @@ because MiHoYo has whole permission that interprets this.
 |1.0.2-beta.2|Change the version information of the code|
 ||Remove dependency about gc.bat -> Use this as manual taskkill command|
 ||[Bugfix] Change the mechanism of the 'taskkill' command execution|
-|*1.0.3-beta.1*🛠️|Add auto starting function|
+|*1.0.2-beta.3*🛠️|Renewal version to be adaptable for newly patched HoYoLAB(2021.12.25)|
+|*1.0.2-rc.1*|TBA|
+|*1.0.3-alpha.1*|Add auto starting function|
 ||Add hiding option. *(Experimental)*|
-|*1.1.0*🛠️|Supports auto update through GitHub release|
-||[Fix bugs] Unknown bugs randomly caused at initial startup|
+||Add explanation about "how to download chrome driver" for Mac and Linux users|
+|*1.1.0*|Supports auto update through GitHub release|
 
 
 ### Python Version
