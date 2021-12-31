@@ -14,19 +14,6 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 
 -----
 
-## [Notice] - GADC is not working properly since Dec.25
-- It seems there was a hidden patch at HoYoLAB. Also, the login session is not being sustained.\
-We're finding another way to check-in automatically. Please wait for some days.
-- 호요랩에 잠수함 패치가 있었던 것 같습니다. 로그인 세션도 유지가 되지 않습니다.\
-출석체크를 자동으로 하기 위한 다른 방법을 찾고 있으니 조금만 기다려주시기 바랍니다.
-
-## [Notice] - How to update GADC manually
-
-- If you want to do update manually, please keep your VirtualEnv folder to maintain your settings.\
-Move VirtualEnv folder into the folder of a new version of GADC. Place VirtualEnv folder to same location of GADC.jar and scripts folder.
-- 만약 수동으로 업데이트를 하고자 하신다면, 셋팅값 유지를 위해 VirtualEnv 폴더는 유지해주시기 바랍니다.\
-새 버전의 GADC 폴더로 VirtualEnv 폴더를 옮겨주세요. GADC.jar 와 scripts 폴더와 같은 위치에 놓아주세요.
-
 ## [Notice] - What kind of device does GADC support?
 - Basically support Windows(10 and higher version, but might support 7 and 8 too)\
 If you want to use GADC in Mac or Linux, you should download appropriate chromedriver.exe manually.\
@@ -34,7 +21,6 @@ Google it like this : "how to download chromedriver"
 - 기본적으로 윈도우스를 지원합니다.(10버전 이상, 아마도 7 및 8버전도 지원합니다)\
 만약 Mac 이나 Linux 에서 GADC을 사용하고자 하신다면, 알맞은 chromedriver.exe 를 직접 다운로드 하셔야 합니다.\
 구글에 "크롬 드라이버 다운방법" 을 검색해보세요.
-
 
 -----
 
