@@ -22,6 +22,10 @@ Google it like this : "how to download chromedriver"
 만약 Mac 이나 Linux 에서 GADC을 사용하고자 하신다면, 알맞은 chromedriver.exe 를 직접 다운로드 하셔야 합니다.\
 구글에 "크롬 드라이버 다운방법" 을 검색해보세요.
 
+## [Notice] - Known bugs
+- Check the known bugs on the 'Issue' tab. If your bug is not in there, make a new issue to let devs fix it.
+- 알려진 버그들을 'Issue' 탭에서 확인하실 수 있습니다. 만약 자신에게 발생한 버그가 issue 리스트에 없다면, 새로 issue를 남겨주시면 고치도록 하겠습니다.
+
 -----
 
 ## ❔ How to use
