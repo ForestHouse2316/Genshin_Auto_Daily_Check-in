@@ -26,6 +26,11 @@ Google it like this : "how to download chromedriver"
 - Check the known bugs on the 'Issue' tab. If your bug is not in there, make a new issue to let devs fix it.
 - 알려진 버그들을 'Issue' 탭에서 확인하실 수 있습니다. 만약 자신에게 발생한 버그가 issue 리스트에 없다면, 새로 issue를 남겨주시면 고치도록 하겠습니다.
 
+## [Notice] - GADC might be merged into a new program
+- All in one desktop application is under developing. If it is successfully done, GADC's functions will be included in it and the support for GADC will be ended.
+- 올인원 프로그램이 개발 중에 있습니다. 만약 성공적으로 개발된다면, GADC의 기능들이 그것에 포함될 예정이며 GADC에 대한 지원은 종료될 것입니다.
+개발자는 GADC의 사용성에 문제가 있음을 인지했고, 더이상의 업데이트는 큰 효과가 없을 것으로 
+
 -----
 
 ## ❔ How to use
