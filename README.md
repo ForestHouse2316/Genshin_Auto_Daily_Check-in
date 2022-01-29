@@ -9,10 +9,33 @@ Are you suffering from forgetting to do HoYoLAB check-in? Use this and be free f
 원신 일일 출첵 매일 까먹으셔서 당황하셨어요? 저도 많이 당황했습니다 ^^\
 자동 출첵 한번 잡숴보세요 ;)
 
-### [출시 버전 보기 (다운로드) 1.X.X-KR.zip - - - - >](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases)
-### [View Released Versions (Download) 1.X.X-EN.zip - - - - >](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases)
+### ~~[출시 버전 보기 (다운로드) 1.X.X-KR.zip - - - - >](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases)~~\
+### ~~[View Released Versions (Download) 1.X.X-EN.zip - - - - >](https://github.com/ForestHouse2316/Genshin_Auto_Daily_Check-in/releases)~~
+
+# This project won't be supported anymore. Use the new project [Pocket Genshiner](https://github.com/ForestHouse2316/Pocket-Genshiner/tree/readme) instead.
+
 
 -----
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+.
 
 ## [Notice] - What kind of device does GADC support?
 - Basically support Windows(10 and higher version, but might support 7 and 8 too)\
